@@ -4,10 +4,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.sparse import hstack
 
-tags = pd.read_csv(r'ml-latest\tags.csv')
-ratings = pd.read_csv(r'ml-latest\ratings.csv')
-movies = pd.read_csv(r'ml-latest\movies.csv')
-links = pd.read_csv(r'ml-latest\links.csv')
+tags = pd.read_csv('ml-latest/tags.csv')
+ratings = pd.read_csv('ml-latest/ratings.csv')
+movies = pd.read_csv('ml-latest/movies.csv')
+links = pd.read_csv('ml-latest/links.csv')
 
 mean_ratings = ratings.groupby('movieId')['rating'].mean().reset_index()
 tags = tags.groupby('movieId')['tag'].agg(lambda x: ' '.join(x.dropna().astype(str))).reset_index()
